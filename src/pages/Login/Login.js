@@ -1,4 +1,9 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Looding from '../Shared/Looding';
 
 const Login = () => {
     const {
@@ -9,7 +14,6 @@ const Login = () => {
       const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
       const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
-        const [token]=useToken(user || gUser)
       const navigate = useNavigate();
       const location = useLocation();
       let signError;
@@ -21,7 +25,7 @@ const Login = () => {
       if (error || gError) {
         signError= <p className="text-red-500 mb-5">Error: {error?.message || gError?.message}</p>;
       }
-      if (token) {
+      if (user || gUser) {
         navigate(from, { replace: true });
       }
       
@@ -52,7 +56,7 @@ const Login = () => {
                         message: "Email is Required",
                       },
                       pattern: {
-                        value: /[A-Za-z]{3}/,
+                        value: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
                         message: "Provide a vaild Email",
                       },
                     })}
@@ -109,7 +113,7 @@ const Login = () => {
                   value="Login"
                 />
               </form>
-              <p>New to Doctor Portal ?<Link to='/register' className='text-primary'> Create new Account</Link></p>
+              <p>New to Auto Parts ?<Link to='/register' className='text-primary'> Create new Account</Link></p>
               <div className="divider">OR</div>
               <button className="btn btn-outline" onClick={hangleGoogle}>
                 Continue with Google
