@@ -23,7 +23,11 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="blog" element={<Blog />} />
-        <Route path="portfolio" element={<MyPortfolio />} />
+        <Route path="portfolio" element={
+          <RequireAuth>
+        <MyPortfolio />
+        </RequireAuth>
+        } />
         
         <Route
           path="/dashboard"
@@ -35,7 +39,11 @@ function App() {
         >
           <Route index element={<MyOrders />} />
           <Route path="review" element={<MyReview />} />
-          <Route path="myProfile" element={<MyProfile />} />
+          <Route path="myProfile" element={
+            
+          <MyProfile />
+          
+          } />
         </Route>
         <Route path='*' element={<NotFound/>}/>
       </Routes>

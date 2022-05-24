@@ -1,34 +1,37 @@
 import React from 'react';
-import { Pagination } from "swiper";
 import 'swiper/css';
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import b1 from '../../image/catalog/brands/b1.jpg';
+import b2 from '../../image/catalog/brands/b2.jpg';
+import b3 from '../../image/catalog/brands/b3.jpg';
+import b4 from '../../image/catalog/brands/b4.jpg';
+import b5 from '../../image/catalog/brands/b5.jpg';
+import b6 from '../../image/catalog/brands/b6.jpg';
 
 
 
 const Brands = () => {
     return (
-        <>
-        <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-          className="mySwiper"
-        >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          <SwiperSlide>Slide 5</SwiperSlide>
-          <SwiperSlide>Slide 6</SwiperSlide>
-          <SwiperSlide>Slide 7</SwiperSlide>
-          <SwiperSlide>Slide 8</SwiperSlide>
-          <SwiperSlide>Slide 9</SwiperSlide>
-        </Swiper>
-      </>
+        <div class="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
+        <div class="carousel-item">
+          <img src={b1} class="rounded-box" alt=''/>
+        </div> 
+        <div class="carousel-item">
+          <img src={b2} class="rounded-box" alt=''/>
+        </div> 
+        <div class="carousel-item">
+          <img src={b3} class="rounded-box" alt=''/>
+        </div> 
+        <div class="carousel-item">
+          <img src={b4} class="rounded-box" alt=''/>
+        </div> 
+        <div class="carousel-item">
+          <img src={b5} class="rounded-box" alt=''/>
+        </div> 
+        <div class="carousel-item">
+          <img src={b6} class="rounded-box" alt=''/>
+        </div> 
+      </div>
     );
 };
 
