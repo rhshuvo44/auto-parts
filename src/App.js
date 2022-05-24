@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Login/Register';
 import Blog from './pages/Other/Blog';
 import MyPortfolio from './pages/Other/MyPortfolio';
+import Footer from './pages/Shared/Footer';
 import Navbar from './pages/Shared/Navbar';
 import NotFound from './pages/Shared/NotFound';
 import RequireAuth from './pages/Shared/RequireAuth';
@@ -38,6 +39,7 @@ function App() {
         </Route>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }
