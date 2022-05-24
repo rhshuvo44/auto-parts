@@ -12,7 +12,10 @@ import b6 from '../../image/catalog/brands/b6.jpg';
 
 const Brands = () => {
     return (
-        <div class="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
+        <div className='py-20'>
+            <h1 className='font-bold text-primary text-5xl'>Brands</h1>
+            <div class="divider"></div>
+        <div class="carousel flex justify-center carousel-center p-4 space-x-4 rounded-box">
         <div class="carousel-item">
           <img src={b1} class="rounded-box" alt=''/>
         </div> 
@@ -31,6 +34,8 @@ const Brands = () => {
         <div class="carousel-item">
           <img src={b6} class="rounded-box" alt=''/>
         </div> 
+        
+      </div>
       </div>
     );
 };

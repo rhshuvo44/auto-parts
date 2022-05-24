@@ -1,5 +1,6 @@
+import { faCircleCheck, faScrewdriverWrench, faStarHalfStroke, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from "react";
-
 const BusinessSummary = () => {
   return (
     <div>
@@ -7,62 +8,33 @@ const BusinessSummary = () => {
       
       <div className="stat">
         <div className="stat-figure text-secondary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block w-8 h-8 stroke-current"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
+        <FontAwesomeIcon className='inline-block w-8 h-8 stroke-current' icon={faCircleCheck} />
         </div>
         <div className="stat-title">Sell Products</div>
-        <div className="stat-value text-primary">31K</div>
+        <div className="stat-value text-primary">120M+</div>
+      </div>
+      <div className="stat">
+        <div className="stat-figure text-secondary">
+        <FontAwesomeIcon className='inline-block w-8 h-8 stroke-current' icon={faUsers} />
+        </div>
+        <div className="stat-title">Customers</div>
+        <div className="stat-value text-primary">1K+</div>
       </div>
 
       <div className="stat">
         <div className="stat-figure text-secondary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block w-8 h-8 stroke-current"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-            ></path>
-          </svg>
+        <FontAwesomeIcon className='inline-block w-8 h-8 stroke-current' icon={faStarHalfStroke} />
         </div>
-        <div className="stat-title">New Users</div>
-        <div className="stat-value text-primary">2,200</div>
+        <div className="stat-title">Reviews</div>
+        <div className="stat-value text-primary">33K+</div>
       </div>
 
       <div className="stat">
         <div className="stat-figure text-secondary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block w-8 h-8 stroke-current"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-            ></path>
-          </svg>
+        <FontAwesomeIcon className='inline-block w-10 h-10 stroke-current' icon={faScrewdriverWrench} />
         </div>
-        <div className="stat-title">New Registers</div>
-        <div className="stat-value text-primary">1,200</div>
+        <div className="stat-title">Parts</div>
+        <div className="stat-value text-primary">200+</div>
       </div>
     </div>
     </div>
