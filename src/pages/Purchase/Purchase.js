@@ -27,7 +27,7 @@ const Purchase = () => {
       phone: data.phone,
       address: data.address,
     };
-    fetch("http://localhost:5000/order", {
+    fetch("http://localhost:5000/orders", {
       method: "POST",
       body: JSON.stringify(order),
       headers: {
