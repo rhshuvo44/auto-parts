@@ -18,7 +18,7 @@ const Login = () => {
       const location = useLocation();
       let signError;
     
-      const from = location.state?.from?.pathname || "/";
+      const from = location.state?.from?.pathname || "/dashboard";
       if (loading || gLoading) {
         return <Looding/>;
       }

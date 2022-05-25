@@ -1,8 +1,8 @@
 import React from "react";
 import {
-    useCreateUserWithEmailAndPassword,
-    useSignInWithGoogle,
-    useUpdateProfile
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const Register = () => {
       const location = useLocation();
       let signError;
     
-      const from = location.state?.from?.pathname || "/";
+      const from = location.state?.from?.pathname || "/dashboard";
       
       if (user || gUser) {
         navigate(from, { replace: true });

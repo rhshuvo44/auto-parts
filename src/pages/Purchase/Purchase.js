@@ -12,18 +12,20 @@ const Purchase = () => {
   const [user] = useAuthState(auth);
   const { id } = useParams();
   let quantityError;
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit ,reset} = useForm();
   useEffect(() => {
     fetch(`http://localhost:5000/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setPart(data));
   }, [part]);
   const onSubmit = (data) => {
+    const totalPrice= part.price * data.quantity;
     const order = {
       name: user.displayName,
       email: user.email,
       productName: part.name,
       quantity: data.quantity,
+      totalPrice: totalPrice,
       phone: data.phone,
       address: data.address,
     };
@@ -35,7 +37,10 @@ const Purchase = () => {
       },
     })
       .then((res) => res.json())
-      .then((json) => toast.success('order success') );
+      .then((json) => {toast.success('Order Success') 
+      reset()
+    
+    });
   };
   const handleQuantity = (e) => {
     console.log(e.target.value);

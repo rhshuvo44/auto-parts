@@ -13,7 +13,7 @@ const Parts = () => {
   if (isLoading) return <Looding/>
     return (
         <div className='p-10'>
-            <h1 className='font-bold text-primary text-5xl text-center'>Parts</h1>
+            <h1 className='font-bold text-primary text-5xl text-center'>Products</h1>
             <div className="divider"></div>
             <div className='grid md:grid-cols-3 '>
                 {
