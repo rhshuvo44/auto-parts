@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Brands from './Brands';
 import BusinessSummary from './BusinessSummary';
+import OurTeam from './OurTeam';
 import Parts from './Parts';
 import Reviews from './Reviews';
 
@@ -13,6 +14,7 @@ const Home = () => {
             <BusinessSummary/>
             <Reviews/>
             <Brands/>
+            <OurTeam/>
         </div>
     );
 };
