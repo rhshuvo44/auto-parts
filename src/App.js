@@ -2,7 +2,11 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
+import AddProduct from "./pages/Dashboard/AddProduct";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import MakeAdmin from "./pages/Dashboard/MakeAdmin";
+import ManageAllOrders from "./pages/Dashboard/ManageAllOrders";
+import ManageProducts from "./pages/Dashboard/ManageProducts";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import MyReview from "./pages/Dashboard/MyReview";
@@ -14,6 +18,7 @@ import About from "./pages/Other/About";
 import Blog from "./pages/Other/Blog";
 import Contact from "./pages/Other/Contact";
 import MyPortfolio from "./pages/Other/MyPortfolio";
+import Products from "./pages/Products/Products";
 import Purchase from "./pages/Purchase/Purchase";
 import Footer from "./pages/Shared/Footer";
 import Navbar from "./pages/Shared/Navbar";
@@ -31,6 +36,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/product" element={<Products/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/portfolio" element={<MyPortfolio />} />
         <Route path="/payment" element={<Payment />} />
@@ -54,6 +60,10 @@ function App() {
           <Route index element={<MyOrders />} />
           <Route path="addReview" element={<MyReview />} />
           <Route path="myProfile" element={<MyProfile />} />
+          <Route path="manageProducts" element={<ManageProducts />} />
+          <Route path="makeAdmin" element={<MakeAdmin />} />
+          <Route path="addProduct" element={<AddProduct />} />
+          <Route path="manageAllOrders" element={<ManageAllOrders />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

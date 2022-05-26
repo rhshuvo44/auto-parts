@@ -17,7 +17,7 @@ const Parts = () => {
             <div className="divider"></div>
             <div className='grid md:grid-cols-3 '>
                 {
-                    parts.map(part=><PartCard key={part._id} part={part}/>)
+                    parts.slice(0,6).map(part=><PartCard key={part._id} part={part}/>)
                     
                 }
             </div>

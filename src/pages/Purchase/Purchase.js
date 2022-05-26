@@ -7,8 +7,6 @@ import auth from "../../firebase.init";
 
 const Purchase = () => {
   const [part, setPart] = useState({});
-
-  const [quantity, setQuantity] = useState();
   const [user] = useAuthState(auth);
   const { id } = useParams();
   let quantityError;
@@ -19,7 +17,7 @@ const Purchase = () => {
       .then((data) => setPart(data));
   }, [part]);
   const onSubmit = (data) => {
-    const totalPrice= part.price * data.quantity;
+    const totalPrice =part.price * data.quantity;
     const order = {
       name: user.displayName,
       email: user.email,
@@ -43,7 +41,7 @@ const Purchase = () => {
     });
   };
   const handleQuantity = (e) => {
-    console.log(e.target.value);
+
   };
   return (
     <div className="py-10">
@@ -129,11 +127,24 @@ const Purchase = () => {
               </div>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
-                  <span className="label-text">Phone</span>
+                  <span className="label-text">Per Price</span>
+                </label>
+                <input
+                  type="number"
+                  disabled
+                  value={part.price}
+                  placeholder="Per Price"
+                  className="input input-bordered w-full max-w-xs"
+                  {...register("totalPrice")}
+                />
+              </div>
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">Phone Number</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Phone"
+                  placeholder="Phone Number"
                   className="input input-bordered w-full max-w-xs"
                   {...register("phone")}
                 />

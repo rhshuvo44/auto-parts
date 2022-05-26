@@ -20,20 +20,20 @@ const Reviews = () => {
       onSwiper={(swiper) => console.log(swiper)}
     >
        {
-          reviews.map(review=><SwiperSlide>
+          reviews.map(review=><SwiperSlide key={review._id}>
             <div className="text-center">
             <h1 className="text-3xl my-5">{review.description}</h1>
-            <p>{review.ratting}</p>
+            <div class="rating">{
+              
+            [...Array(review.ratting)].map(stat =>  <>
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+            </> )
+            }</div>
             </div>
             
           </SwiperSlide>)
         }
     </Swiper>
-      {/* <div class="carousel rounded-box">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-center">
-       
-        </div>
-      </div> */}
     </div>
   );
 };
