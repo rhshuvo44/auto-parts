@@ -16,10 +16,10 @@ navigate(`/purchase/${id}`)
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{name}</h2>
+        <h2 className="text-3xl text-center">{name}</h2>
         <h2 className="card-title">minimum Quantity : {minimumQuantity}</h2>
         <h2 className="card-title">Availabl Quantity : {availablQuantity}</h2>
-        <h2 className="card-title">Price : ${price}</h2>
+        <h2 className="card-title">Price : ${price} <small>(per piece)</small></h2>
         <p>{description}</p>
         <div className="card-actions justify-end">
           <button onClick={()=>handlePurche(_id)} className="btn btn-primary">Purchase</button>

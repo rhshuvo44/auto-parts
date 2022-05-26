@@ -10,7 +10,9 @@ import Payment from "./pages/Dashboard/Payment";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
+import About from "./pages/Other/About";
 import Blog from "./pages/Other/Blog";
+import Contact from "./pages/Other/Contact";
 import MyPortfolio from "./pages/Other/MyPortfolio";
 import Purchase from "./pages/Purchase/Purchase";
 import Footer from "./pages/Shared/Footer";
@@ -28,6 +30,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/about" element={<About/>} />
         <Route path="/portfolio" element={<MyPortfolio />} />
         <Route path="/payment" element={<Payment />} />
         <Route
