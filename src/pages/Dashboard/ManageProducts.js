@@ -9,26 +9,23 @@ fetch('http://localhost:5000/parts')
 .then(data=>setProducts(data))
     },[products])
   return (
-    <div>
+    <div className="py-10">
       <h1 className="text-center font-bold text-2xl">Manage Products</h1>
       <div className="overflow-x-auto mt-10">
         <table className="table w-full">
           <thead>
             <tr>
-              <th></th>
+              <th>no</th>
               <th>Product Name</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Number</th>
-              <th>Quantity</th>
-              <th>Total Price</th>
-              <th>Payment</th>
+              <th>Minimum Quantity</th>
+              <th>Availabl Quantity</th>
+              <th>Price</th>
               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             {products.map((product, index) => (
-              <ManageProductsTable key={products._id} index={index} product={product} />
+              <ManageProductsTable key={products._id} index={index} product={product} setProducts={setProducts} />
             ))}
           </tbody>
         </table>
