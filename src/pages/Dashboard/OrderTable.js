@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const OrderTable = ({setOrders,order,index}) => {
-    const {_id,name,totalPrice,email,productName,quantity,phone}=order;
+    const {_id,totalPrice,email,productName,quantity,phone}=order;
     const navigate=useNavigate()
 
     const handlePayment=(id)=>{
@@ -29,7 +29,6 @@ const OrderTable = ({setOrders,order,index}) => {
     <tr>
       <th>{index + 1}</th>
       <td>{productName}</td>
-      <td>{name}</td>
       <td>{email}</td>
       <td>{phone}</td>
       <td>{quantity}</td>

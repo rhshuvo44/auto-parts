@@ -7,6 +7,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from "../../Hooks/useToken";
 import Looding from "../Shared/Looding";
 
 const Register = () => {
@@ -19,13 +20,14 @@ const Register = () => {
       const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+      const [token]=useToken(user || gUser)
       const navigate = useNavigate();
       const location = useLocation();
       let signError;
     
       const from = location.state?.from?.pathname || "/dashboard";
       
-      if (user || gUser) {
+      if (token) {
         navigate(from, { replace: true });
       }
       if (error || gError || updateError) {

@@ -4,15 +4,22 @@ import auth from "../../firebase.init";
 import OrderTable from "./OrderTable";
 
 const MyOrders = () => {
-  const [user] = useAuthState(auth);
 
   const [orders, setOrders] = useState([]);
+  const [user] = useAuthState(auth);
+
   useEffect(() => {
     const email = user.email;
-    fetch(`http://localhost:5000/orders?email=${email}`)
+    if(user){
+    fetch(`http://localhost:5000/orders?email=${email}`,{
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, [orders]);
+      .then((data) => setOrders(data));}
+  }, [user]);
 
   return (
     <div>
@@ -23,7 +30,6 @@ const MyOrders = () => {
             <tr>
               <th></th>
               <th>Product Name</th>
-              <th>Name</th>
               <th>Email</th>
               <th>Number</th>
               <th>Quantity</th>

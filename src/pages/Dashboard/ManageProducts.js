@@ -25,7 +25,7 @@ fetch('http://localhost:5000/parts')
           </thead>
           <tbody>
             {products.map((product, index) => (
-              <ManageProductsTable key={products._id} index={index} product={product} setProducts={setProducts} />
+              <ManageProductsTable key={product._id} index={index} product={product} setProducts={setProducts} />
             ))}
           </tbody>
         </table>
