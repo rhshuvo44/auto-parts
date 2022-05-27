@@ -11,13 +11,17 @@ const Parts = () => {
   )
 
   if (isLoading) return <Looding/>
+
+ const newParts = [...parts];
+ const carParts = newParts.reverse().slice(0,6)
+
     return (
         <div className='p-10'>
             <h1 className='font-bold text-primary text-5xl text-center'>Products</h1>
             <div className="divider"></div>
             <div className='grid md:grid-cols-3 '>
                 {
-                    parts.slice(0,6).map(part=><PartCard key={part._id} part={part}/>)
+                    carParts.map(part=><PartCard key={part._id} part={part}/>)
                     
                 }
             </div>

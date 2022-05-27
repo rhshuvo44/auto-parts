@@ -11,6 +11,7 @@ import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import MyReview from "./pages/Dashboard/MyReview";
 import Payment from "./pages/Dashboard/Payment";
+import UpdateProfile from "./pages/Dashboard/UpdateProfile";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
@@ -60,6 +61,7 @@ function App() {
           <Route index element={<MyOrders />} />
           <Route path="addReview" element={<MyReview />} />
           <Route path="myProfile" element={<MyProfile />} />
+          <Route path="updateProfile" element={<UpdateProfile />} />
           <Route path="payment/:id" element={<Payment />} />
           <Route path="manageProducts" element={<ManageProducts />} />
           <Route path="makeAdmin" element={<RequireAdmin><MakeAdmin /></RequireAdmin>} />

@@ -1,6 +1,6 @@
 Live website with [Auto Parts](https://auto-parts-4490a.web.app/).
 
-### framework and a library
+### framework and library
 
 - React bootstrap
 - React form hook

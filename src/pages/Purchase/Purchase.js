@@ -9,7 +9,6 @@ const Purchase = () => {
   const [part, setPart] = useState({});
   const [user] = useAuthState(auth);
   const { id } = useParams();
-  let quantityError;
   const { register, handleSubmit ,reset} = useForm();
   useEffect(() => {
     fetch(`http://localhost:5000/purchase/${id}`)
@@ -17,31 +16,39 @@ const Purchase = () => {
       .then((data) => setPart(data));
   }, [part]);
   const onSubmit = (data) => {
-    const totalPrice =part.price * data.quantity;
-    const order = {
-      name: user.displayName,
-      email: user.email,
-      productName: part.name,
-      quantity: data.quantity,
-      totalPrice: totalPrice,
-      phone: data.phone,
-      address: data.address,
-    };
-    fetch("http://localhost:5000/orders", {
-      method: "POST",
-      body: JSON.stringify(order),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((res) => res.json())
-      .then((json) => {toast.success('Order Success') 
-      reset()
-    
-    });
-  };
-  const handleQuantity = (e) => {
 
+    if (part.minimumQuantity > data.quantity || part.availablQuantity < data.quantity) {
+       toast.error(`Minimum Quantity ${part.minimumQuantity} and quantity lass then ${part.availablQuantity}`)
+    }
+else{
+  const totalPrice =part.price * data.quantity;
+
+  const order = {
+    name: user.displayName,
+    email: user.email,
+    productName: part.name,
+    quantity: data.quantity,
+    totalPrice: totalPrice,
+    phone: data.phone,
+    address: data.address,
+  };
+  fetch("http://localhost:5000/orders", {
+    method: "POST",
+    body: JSON.stringify(order),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((res) => res.json())
+    .then((json) => {toast.success('Order Success') 
+    reset()
+  
+  });
+}
+
+
+
+    
   };
   return (
     <div className="py-10">
@@ -114,15 +121,12 @@ const Purchase = () => {
                   <span className="label-text">Quantity</span>
                 </label>
                 <input
-                  onChange={handleQuantity}
                   type="number"
+                  defaultValue={part.minimumQuantity}
                   placeholder="Quantity"
                   className="input input-bordered w-full max-w-xs"
                   {...register("quantity")}
                 />
-                <label className="label">
-                  <span className="label-text">{quantityError}</span>
-                </label>
               </div>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
