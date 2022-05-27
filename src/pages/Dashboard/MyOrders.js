@@ -14,7 +14,7 @@ const MyOrders = () => {
   useEffect(() => {
     const email = user.email;
     if(user){
-    fetch(`https://guarded-oasis-40937.herokuapp.com/orders?email=${email}`,{
+    fetch(`http://localhost:5000/orders?email=${email}`,{
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -28,7 +28,7 @@ const MyOrders = () => {
         }
         return res.json()})
       .then((data) => setOrders(data));}
-  }, [user]);
+  }, [orders]);
 
   return (
     <div>

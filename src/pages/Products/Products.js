@@ -5,7 +5,7 @@ import Looding from "../Shared/Looding";
 
 const Products = () => {
   const { isLoading, data: parts } = useQuery("parts", () =>
-    fetch(`https://guarded-oasis-40937.herokuapp.com/parts`).then((res) => res.json())
+    fetch(`http://localhost:5000/parts`).then((res) => res.json())
   );
 
   if (isLoading) return <Looding />;

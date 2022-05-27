@@ -15,7 +15,7 @@ const AddProduct = () => {
             availablQuantity:data.availablQuantity,
             price:data.price
         };
-        fetch("https://guarded-oasis-40937.herokuapp.com/parts", {
+        fetch("http://localhost:5000/parts", {
           method: "POST",
           body: JSON.stringify(addProduct),
           headers: {

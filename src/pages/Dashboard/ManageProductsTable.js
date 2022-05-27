@@ -7,7 +7,7 @@ const ManageProductsTable = ({setProducts,product,index}) => {
     const handleDelete=(id)=>{
         const deleteConfirm=window.confirm('Are you sure?')
         if(deleteConfirm){
-          const url=`https://guarded-oasis-40937.herokuapp.com/parts/${id}`
+          const url=`http://localhost:5000/parts/${id}`
           fetch(url, {
             method: 'DELETE',
           })

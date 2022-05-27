@@ -4,7 +4,7 @@ import ManageProductsTable from "./ManageProductsTable";
 const ManageProducts = () => {
     const [products,setProducts]=useState([]);
     useEffect(()=>{
-fetch('https://guarded-oasis-40937.herokuapp.com/parts')
+fetch('http://localhost:5000/parts')
 .then(res=>res.json())
 .then(data=>setProducts(data))
     },[products])

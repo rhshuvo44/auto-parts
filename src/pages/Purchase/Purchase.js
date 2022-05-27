@@ -12,7 +12,7 @@ const Purchase = () => {
   let quantityError;
   const { register, handleSubmit ,reset} = useForm();
   useEffect(() => {
-    fetch(`https://guarded-oasis-40937.herokuapp.com/purchase/${id}`)
+    fetch(`http://localhost:5000/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setPart(data));
   }, [part]);
@@ -27,7 +27,7 @@ const Purchase = () => {
       phone: data.phone,
       address: data.address,
     };
-    fetch("https://guarded-oasis-40937.herokuapp.com/orders", {
+    fetch("http://localhost:5000/orders", {
       method: "POST",
       body: JSON.stringify(order),
       headers: {
