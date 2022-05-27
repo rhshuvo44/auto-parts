@@ -25,9 +25,7 @@ const Reviews = () => {
             <h1 className="text-3xl my-5">{review.description}</h1>
             <div class="rating">{
               
-            [...Array(review.ratting)].map(stat =>  <>
-            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-            </> )
+            [...Array(review.ratting.length)].map(() => <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" /> )
             }</div>
             </div>
             
