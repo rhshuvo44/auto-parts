@@ -5,7 +5,7 @@ const MakeAdmin = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/user", {
+    fetch("https://guarded-oasis-40937.herokuapp.com/user", {
       method: "GET",
       headers: {
         "content-type": "application/json",

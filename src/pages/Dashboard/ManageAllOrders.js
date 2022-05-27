@@ -4,7 +4,7 @@ import ManageAllOrderTable from "./ManageAllOrderTable";
 const ManageAllOrders = () => {
     const [orders,setOrders]=useState([]);
     useEffect(()=>{
-fetch('http://localhost:5000/allOrders')
+fetch('https://guarded-oasis-40937.herokuapp.com/allOrders')
 .then(res=>res.json())
 .then(data=>setOrders(data))
     },[orders])

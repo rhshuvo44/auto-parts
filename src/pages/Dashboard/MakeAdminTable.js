@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const MakeAdminTable = ({ setUsers, user, index }) => {
     const{_id,email,role}=user;
     const handleAdmin=()=>{
-      fetch(`http://localhost:5000/user/admin/${email}`,{
+      fetch(`https://guarded-oasis-40937.herokuapp.com/user/admin/${email}`,{
   method: "PUT",
   headers: {
     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,7 +26,7 @@ if(data.modifiedCount >0){
   const handleDelete = (id) => {
     const deleteConfirm = window.confirm("Are you sure?");
     if (deleteConfirm) {
-      const url = `http://localhost:5000/user/${id}`;
+      const url = `https://guarded-oasis-40937.herokuapp.com/user/${id}`;
       fetch(url, {
         method: "DELETE",
       })
