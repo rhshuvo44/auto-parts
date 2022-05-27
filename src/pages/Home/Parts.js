@@ -5,7 +5,7 @@ import PartCard from './PartCard';
 
 const Parts = () => {
     const { isLoading,  data:parts } = useQuery('parts', () =>
-    fetch(`http://localhost:5000/parts`).then(res =>
+    fetch(`https://guarded-oasis-40937.herokuapp.com/parts`).then(res =>
       res.json()
     )
   )

@@ -12,7 +12,7 @@ const OrderTable = ({setOrders,order,index}) => {
     const handleDelete=(id)=>{
         const deleteConfirm=window.confirm('Are you sure?')
         if(deleteConfirm){
-          const url=`http://localhost:5000/orders/${id}`
+          const url=`https://guarded-oasis-40937.herokuapp.com/orders/${id}`
           fetch(url, {
             method: 'DELETE',
           })
