@@ -23,6 +23,7 @@ import Purchase from "./pages/Purchase/Purchase";
 import Footer from "./pages/Shared/Footer";
 import Navbar from "./pages/Shared/Navbar";
 import NotFound from "./pages/Shared/NotFound";
+import RequireAdmin from "./pages/Shared/RequireAdmin";
 import RequireAuth from "./pages/Shared/RequireAuth";
 
 function App() {
@@ -61,9 +62,9 @@ function App() {
           <Route path="addReview" element={<MyReview />} />
           <Route path="myProfile" element={<MyProfile />} />
           <Route path="manageProducts" element={<ManageProducts />} />
-          <Route path="makeAdmin" element={<MakeAdmin />} />
-          <Route path="addProduct" element={<AddProduct />} />
-          <Route path="manageAllOrders" element={<ManageAllOrders />} />
+          <Route path="makeAdmin" element={<RequireAdmin><MakeAdmin /></RequireAdmin>} />
+          <Route path="addProduct" element={<RequireAdmin><AddProduct /></RequireAdmin>} />
+          <Route path="manageAllOrders" element={<RequireAdmin><ManageAllOrders /></RequireAdmin>} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

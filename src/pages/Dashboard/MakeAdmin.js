@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import MakeAdminTable from './MakeAdminTable';
+import React, { useEffect, useState } from "react";
+import MakeAdminTable from "./MakeAdminTable";
 
 const MakeAdmin = () => {
-    const [users,setUsers]=useState([]);
-    useEffect(()=>{
-fetch('http://localhost:5000/user')
-.then(res=>res.json())
-.then(data=>setUsers(data))
-    },[users])
-    return (
-        <div>
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/user", {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, [users]);
+  return (
+    <div>
       <h1 className="text-center font-bold text-2xl">Make Admin</h1>
       <div className="overflow-x-auto mt-10">
         <table className="table w-full">
@@ -23,13 +30,18 @@ fetch('http://localhost:5000/user')
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <MakeAdminTable key={user._id} index={index} user={user} setUsers={setUsers} />
+              <MakeAdminTable
+                key={user._id}
+                index={index}
+                user={user}
+                setUsers={setUsers}
+              />
             ))}
           </tbody>
         </table>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default MakeAdmin;

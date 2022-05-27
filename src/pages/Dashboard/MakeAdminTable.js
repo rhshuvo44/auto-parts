@@ -2,9 +2,26 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const MakeAdminTable = ({ setUsers, user, index }) => {
-    const{_id,email}=user;
-    const handleAdmin=(id)=>{
-      
+    const{_id,email,role}=user;
+    const handleAdmin=()=>{
+      fetch(`http://localhost:5000/user/admin/${email}`,{
+  method: "PUT",
+  headers: {
+    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  },
+})
+.then(res=>{
+  if(res.status===403){
+    toast.error('Failed to make an admin')
+  }
+  return res.json()})
+.then(data=>{
+if(data.modifiedCount >0){
+  toast.success("Successfully made an admin");
+
+}  
+
+})
     }
   const handleDelete = (id) => {
     const deleteConfirm = window.confirm("Are you sure?");
@@ -18,7 +35,7 @@ const MakeAdminTable = ({ setUsers, user, index }) => {
         .then((data) => {
           const result = user.filter((item) => item._id !== id);
           setUsers(result);
-          toast("Deleted Success");
+          toast.success("Deleted Success");
         });
     }
   };
@@ -27,12 +44,12 @@ const MakeAdminTable = ({ setUsers, user, index }) => {
       <th>{index + 1}</th>
       <th>{email}</th>
       <td>
-        <button onClick={() => handleAdmin(_id)} className="btn btn-secondary">
+        { role !== 'admin' && <button onClick={handleAdmin} className="btn btn-xs">
           Make Admin
-        </button>
+        </button>}
       </td>
       <td>
-        <button onClick={() => handleDelete(_id)} className="btn btn-primary">
+        <button onClick={() => handleDelete(_id)} className="btn btn-xs">
           Delete
         </button>
       </td>

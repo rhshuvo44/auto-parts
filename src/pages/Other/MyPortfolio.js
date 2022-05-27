@@ -138,7 +138,7 @@ const MyPortfolio = () => {
           
       <h1 className="text-5xl text-center">My Project</h1>
       <div class="divider"></div>
-      <p className="mt-5 text-2xl">Project 1: <span className="text-primary"><a href="#" >Auto Parts</a></span> </p>
+      <p className="mt-5 text-2xl">Project 1: <span className="text-primary"><a href="https://auto-parts-4490a.web.app/" >Auto Parts</a></span> </p>
       <p className="mt-5 text-2xl">Project 2: <span className="text-primary"> <a href="https://iphone-warehouse.web.app/" >iphone-warehouse</a></span></p>
       <p className="mt-5 text-2xl">Project 3:<span className="text-primary">  <a href="https://gym-trainer-2728e.web.app/" >gym-trainer</a></span></p>
       </div>

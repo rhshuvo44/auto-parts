@@ -60,7 +60,6 @@ const Purchase = () => {
             </h1>
             <h1 className="text-3xl font-bold">Price : ${part.price}</h1>
             <p className="p-6">{part.description}</p>
-            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
