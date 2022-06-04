@@ -14,7 +14,7 @@ const MyProfile = () => {
         <figure>
           <div class="avatar">
             <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={user.photoURL} alt="" />
+              <img src={user.photoURL} alt="user.displayName" />
             </div>
           </div>
         </figure>
@@ -22,9 +22,9 @@ const MyProfile = () => {
           <h2 class="card-title">Name :{user.displayName}</h2>
           <h2 class="card-title">Email :{user.email}</h2>
           <div class="card-actions justify-center mt-10">
-<Link to='/dashboard/updateProfile'>
-<button class="btn btn-primary">Update Profile</button>
-</Link>
+            <Link to="/dashboard/updateProfile">
+              <button class="btn btn-primary">Update Profile</button>
+            </Link>
           </div>
         </div>
       </div>

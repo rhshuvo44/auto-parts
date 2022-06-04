@@ -1,3 +1,5 @@
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +11,7 @@ const Reviews = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [reviews]);
+  const newReviews = [...reviews].reverse();
   return (
     <div className="p-10 m-auto w-auto">
       <h1 className="text-center font-bold text-5xl">Reviews</h1>
@@ -19,11 +22,35 @@ const Reviews = () => {
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {reviews.map((review) => (
+        {newReviews.map((review) => (
           <SwiperSlide key={review._id}>
-            <div className="text-center">
-              <h1 className="text-3xl my-5">{review.description}</h1>
-              <div class="rating">{ review.ratting }</div>
+            <div class="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <div class="avatar">
+                  <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img src={review.img} alt={review.name} />
+                  </div>
+                </div>
+              </figure>
+              <div class="card-body items-center text-center">
+                <h2 class="card-title text-secondary">{review.name}</h2>
+                <p>{review.description}</p>
+                <div class="card-actions justify-end">
+                  <div class="rating">
+                    {[...new Array(5)].map((arr, index) => {
+                      return index < review.ratting ? (
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          size="lg"
+                          color="orange"
+                        />
+                      ) : (
+                        <FontAwesomeIcon icon={faStar} size="lg" />
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
         ))}

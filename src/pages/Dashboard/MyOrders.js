@@ -9,7 +9,7 @@ const MyOrders = () => {
 
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
-  const navigate=useNavigate()
+  const navigate=useNavigate();
 
   useEffect(() => {
     const email = user.email;

@@ -18,7 +18,6 @@ import Register from "./pages/Login/Register";
 import About from "./pages/Other/About";
 import Blog from "./pages/Other/Blog";
 import Contact from "./pages/Other/Contact";
-import MyPortfolio from "./pages/Other/MyPortfolio";
 import Products from "./pages/Products/Products";
 import Purchase from "./pages/Purchase/Purchase";
 import Footer from "./pages/Shared/Footer";
@@ -40,7 +39,6 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/product" element={<Products/>} />
         <Route path="/about" element={<About/>} />
-        <Route path="/portfolio" element={<MyPortfolio />} />
         <Route
           path="/purchase/:id"
           element={
@@ -58,9 +56,9 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders />} />
+          <Route index element={<MyProfile />} />
+          <Route path="myOrder" element={<MyOrders />} />
           <Route path="addReview" element={<MyReview />} />
-          <Route path="myProfile" element={<MyProfile />} />
           <Route path="updateProfile" element={<UpdateProfile />} />
           <Route path="payment/:id" element={<Payment />} />
           <Route path="manageProducts" element={<ManageProducts />} />
