@@ -2,6 +2,9 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import "swiper/css";
+import 'swiper/less';
+import 'swiper/less/navigation';
+import 'swiper/less/pagination';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const Reviews = () => {
@@ -19,12 +22,14 @@ const Reviews = () => {
       <Swiper
         spaceBetween={50}
         slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
         {newReviews.map((review) => (
           <SwiperSlide key={review._id}>
-            <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="card w-96 bg-base-100 mt-5 shadow-xl">
               <figure>
                 <div class="avatar">
                   <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
