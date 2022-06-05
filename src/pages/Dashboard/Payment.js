@@ -16,11 +16,8 @@ const Payment = () => {
       .then((data) => setOrders(data));
   }, [id]);
 
-  // if (isLoading) {
-  //   return <Looding />;
-  // }
   return (
-    <div className="p-10">
+    <div className="p-10 w-2/4 m-auto">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title text-secondary">Hello, {orders.name}</h2>

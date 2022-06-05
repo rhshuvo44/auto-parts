@@ -1,42 +1,34 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Looding from "../Shared/Looding";
 
 const CheckoutForm = ({ orders }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
-  const [transtionId, setTranstionId] = useState("");
+  const [transactionId, setTransactionId] = useState("");
+  const { _id, totalPrice, name, email } = orders;
   useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
     fetch("https://guarded-oasis-40937.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ price: orders.totalPrice }),
+      body: JSON.stringify({ price: totalPrice }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, [orders]);
+  }, [totalPrice]);
   const handleSubmit = async (event) => {
-    // Block native form submission.
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
-
-    // Get a reference to a mounted CardElement. Elements knows how
-    // to find your CardElement because there can only ever be one of
-    // each type of element.
     const card = elements.getElement(CardElement);
 
     if (card == null) {
       return;
     }
-
-    // Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
@@ -44,10 +36,34 @@ const CheckoutForm = ({ orders }) => {
 
     if (error) {
       toast.error(error.message);
+    }
+    const { paymentIntent, error: intentError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: name,
+            email: email,
+          },
+        },
+      });
+    if (intentError) {
+      toast.error(intentError?.message);
     } else {
-      setTranstionId(paymentMethod.id);
-
-      toast.success(`Your Payment success`);
+      setTransactionId(paymentIntent.id);
+      const payment = {
+        order: _id,
+        price: totalPrice,
+        transactionId: paymentIntent.id,
+      };
+      fetch(`https://guarded-oasis-40937.herokuapp.com/orders/${_id}`, {
+        method: "PATCH",
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success(`Your Payment success`);
+        });
     }
   };
   return (
@@ -71,7 +87,12 @@ const CheckoutForm = ({ orders }) => {
       <button type="submit" disabled={!stripe}>
         Pay
       </button>
-      {transtionId && <p> Your Transition id {transtionId}</p>}
+      {transactionId && (
+        <p className="text-orange-500 font-bold">
+          {" "}
+          Your Transition id {transactionId}
+        </p>
+      )}
     </form>
   );
 };

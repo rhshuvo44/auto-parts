@@ -14,10 +14,10 @@ const Purchase = () => {
     fetch(`https://guarded-oasis-40937.herokuapp.com/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setPart(data));
-  }, [part]);
+  }, [id]);
   const onSubmit = (data) => {
 
-    if (part.minimumQuantity > data.quantity || part.availablQuantity < data.quantity) {
+    if (part.minimumQuantity >= data.quantity || part.availablQuantity <= data.quantity) {
        toast.error(`Minimum Quantity ${part.minimumQuantity} and quantity lass then ${part.availablQuantity}`)
     }
 else{
