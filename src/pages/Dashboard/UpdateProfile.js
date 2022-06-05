@@ -31,7 +31,7 @@ const UpdateProfile = () => {
             number: data.number,
             img: img,
           };
-          fetch("http://localhost:5000/updateUser", {
+          fetch("https://guarded-oasis-40937.herokuapp.com/updateUser", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -52,7 +52,7 @@ const UpdateProfile = () => {
   return (
     <div className="p-10 ">
       <h1 className="text-2xl">Update your Profile</h1>
-      <div class="divider"></div>
+      <div className="divider"></div>
 
       <div className="flex h-screen justify-center items-center">
         <div className="card w-96 bg-base-100 shadow-xl">

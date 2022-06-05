@@ -2,9 +2,9 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import "swiper/css";
-import 'swiper/less';
-import 'swiper/less/navigation';
-import 'swiper/less/pagination';
+import "swiper/less";
+import "swiper/less/navigation";
+import "swiper/less/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const Reviews = () => {
@@ -27,21 +27,21 @@ const Reviews = () => {
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {newReviews.map((review) => (
-          <SwiperSlide key={review._id}>
-            <div class="card w-96 bg-base-100 mt-5 shadow-xl">
+        {newReviews.map((review, index) => (
+          <SwiperSlide key={index}>
+            <div className="card w-96 bg-base-100 mt-5 shadow-xl">
               <figure>
-                <div class="avatar">
-                  <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="avatar">
+                  <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={review.img} alt={review.name} />
                   </div>
                 </div>
               </figure>
-              <div class="card-body items-center text-center">
-                <h2 class="card-title text-secondary">{review.name}</h2>
+              <div className="card-body items-center text-center">
+                <h2 className="card-title text-secondary">{review.name}</h2>
                 <p>{review.description}</p>
-                <div class="card-actions justify-end">
-                  <div class="rating">
+                <div className="card-actions justify-end">
+                  <div className="rating">
                     {[...new Array(5)].map((arr, index) => {
                       return index < review.ratting ? (
                         <FontAwesomeIcon

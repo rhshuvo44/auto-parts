@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import AddProduct from "./pages/Dashboard/AddProduct";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -36,9 +36,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/product" element={<Products/>} />
-        <Route path="/about" element={<About/>} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/product" element={<Products />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/purchase/:id"
           element={
@@ -62,9 +62,30 @@ function App() {
           <Route path="updateProfile" element={<UpdateProfile />} />
           <Route path="payment/:id" element={<Payment />} />
           <Route path="manageProducts" element={<ManageProducts />} />
-          <Route path="makeAdmin" element={<RequireAdmin><MakeAdmin /></RequireAdmin>} />
-          <Route path="addProduct" element={<RequireAdmin><AddProduct /></RequireAdmin>} />
-          <Route path="manageAllOrders" element={<RequireAdmin><ManageAllOrders /></RequireAdmin>} />
+          <Route
+            path="makeAdmin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="addProduct"
+            element={
+              <RequireAdmin>
+                <AddProduct />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="manageAllOrders"
+            element={
+              <RequireAdmin>
+                <ManageAllOrders />
+              </RequireAdmin>
+            }
+          />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
