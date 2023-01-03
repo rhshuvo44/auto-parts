@@ -7,7 +7,7 @@ const OrderTable = ({ setOrders, order, index }) => {
   const handleDelete = (id) => {
     const deleteConfirm = window.confirm("Are you sure?");
     if (deleteConfirm) {
-      const url = `https://guarded-oasis-40937.herokuapp.com/orders/${id}`;
+      const url = `https://auto-parts-server-one.vercel.app/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })

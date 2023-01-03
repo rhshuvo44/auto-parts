@@ -5,7 +5,7 @@ import PartCard from "./PartCard";
 
 const Parts = () => {
   const { isLoading, data: parts } = useQuery("parts", () =>
-    fetch(`https://guarded-oasis-40937.herokuapp.com/parts`).then((res) =>
+    fetch(`https://auto-parts-server-one.vercel.app/parts`).then((res) =>
       res.json()
     )
   );

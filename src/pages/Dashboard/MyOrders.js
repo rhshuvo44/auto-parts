@@ -14,7 +14,7 @@ const MyOrders = () => {
   useEffect(() => {
     const email = user.email;
     if(user){
-    fetch(`https://guarded-oasis-40937.herokuapp.com/orders?email=${email}`,{
+    fetch(`https://auto-parts-server-one.vercel.app/orders?email=${email}`,{
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

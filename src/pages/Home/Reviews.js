@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("https://guarded-oasis-40937.herokuapp.com/reviews")
+    fetch("https://auto-parts-server-one.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [reviews]);

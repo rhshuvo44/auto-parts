@@ -1,7 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import Looding from "../Shared/Looding";
 
 const CheckoutForm = ({ orders }) => {
   const stripe = useStripe();
@@ -10,7 +9,7 @@ const CheckoutForm = ({ orders }) => {
   const [transactionId, setTransactionId] = useState("");
   const { _id, totalPrice, name, email } = orders;
   useEffect(() => {
-    fetch("https://guarded-oasis-40937.herokuapp.com/create-payment-intent", {
+    fetch("https://auto-parts-server-one.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ price: totalPrice }),
@@ -56,7 +55,7 @@ const CheckoutForm = ({ orders }) => {
         price: totalPrice,
         transactionId: paymentIntent.id,
       };
-      fetch(`https://guarded-oasis-40937.herokuapp.com/orders/${_id}`, {
+      fetch(`https://auto-parts-server-one.vercel.app/orders/${_id}`, {
         method: "PATCH",
         body: JSON.stringify(payment),
       })

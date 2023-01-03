@@ -11,7 +11,7 @@ const Payment = () => {
   const [orders, setOrders] = useState({});
 
   useEffect(() => {
-    fetch(`https://guarded-oasis-40937.herokuapp.com/orders/${id}`)
+    fetch(`https://auto-parts-server-one.vercel.app/orders/${id}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [id]);

@@ -15,7 +15,7 @@ const MyReview = () => {
       img: user.photoURL,
       description: data.description,
     };
-    fetch("https://guarded-oasis-40937.herokuapp.com/reviews", {
+    fetch("https://auto-parts-server-one.vercel.app/reviews", {
       method: "POST",
       body: JSON.stringify(review),
       headers: {

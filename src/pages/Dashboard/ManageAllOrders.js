@@ -4,7 +4,7 @@ import ManageAllOrderTable from "./ManageAllOrderTable";
 const ManageAllOrders = () => {
     const [orders,setOrders]=useState([]);
     useEffect(()=>{
-fetch('https://guarded-oasis-40937.herokuapp.com/allOrders')
+fetch('https://auto-parts-server-one.vercel.app/allOrders')
 .then(res=>res.json())
 .then(data=>setOrders(data))
     },[orders])

@@ -11,7 +11,7 @@ const Purchase = () => {
   const { id } = useParams();
   const { register, handleSubmit ,reset} = useForm();
   useEffect(() => {
-    fetch(`https://guarded-oasis-40937.herokuapp.com/purchase/${id}`)
+    fetch(`https://auto-parts-server-one.vercel.app/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setPart(data));
   }, [id]);
@@ -32,7 +32,7 @@ else{
     phone: data.phone,
     address: data.address,
   };
-  fetch("https://guarded-oasis-40937.herokuapp.com/orders", {
+  fetch("https://auto-parts-server-one.vercel.app/orders", {
     method: "POST",
     body: JSON.stringify(order),
     headers: {

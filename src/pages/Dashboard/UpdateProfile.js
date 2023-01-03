@@ -31,7 +31,7 @@ const UpdateProfile = () => {
             number: data.number,
             img: img,
           };
-          fetch("https://guarded-oasis-40937.herokuapp.com/updateUser", {
+          fetch("https://auto-parts-server-one.vercel.app/updateUser", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -7,7 +7,7 @@ const MyProfile = () => {
   const [user] = useAuthState(auth);
   const [userInfo, setUserinfo] = useState([]);
   useEffect(() => {
-    fetch(`https://guarded-oasis-40937.herokuapp.com/updateUser/${user.email}`)
+    fetch(`https://auto-parts-server-one.vercel.app/updateUser/${user.email}`)
       .then((res) => res.json())
       .then((result) => {
         setUserinfo(result);
